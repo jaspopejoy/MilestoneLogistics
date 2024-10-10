@@ -17,7 +17,6 @@ namespace MilestoneLogistics.web.Repositories
                                   configuration.GetSection("Cloudinary")["ApiSecret"]);
         }
 
-        [Obsolete]
         public async Task<string?> UploadAsync(IFormFile file)
         {
             var client = new Cloudinary(account);

@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MilestoneLogistics.web.Repositories;
 using System.Net;
-using System.Runtime.CompilerServices;
 
 namespace MilestoneLogistics.web.Controllers
 {
@@ -31,5 +30,6 @@ namespace MilestoneLogistics.web.Controllers
 
             return new JsonResult(new { link = imageURL });
         }
+
     }
 }
