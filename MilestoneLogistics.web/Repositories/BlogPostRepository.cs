@@ -41,13 +41,18 @@ namespace MilestoneLogistics.web.Repositories
 
         public async Task<BlogPost?> GetAsync(Guid id)
         {
-            return await _context.BlogPosts.Include(x => x.Tags).FirstOrDefaultAsync(x  => x.Id == id);
+            return await _context.BlogPosts.Include(x => x.Tags).FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        public async Task<BlogPost?> GetByUrlHandleAsync(string urlHandle)
+        {
+            return await _context.BlogPosts.Include(x => x.Tags).FirstOrDefaultAsync(y => y.UrlHandle == urlHandle);
         }
 
         public async Task<BlogPost?> UpdateAsync(BlogPost blogpost)
         {
             var existingBlog = await _context.BlogPosts.Include(x => x.Tags).FirstOrDefaultAsync(x => x.Id == blogpost.Id);
-            
+
             if (existingBlog != null)
             {
                 existingBlog.Id = blogpost.Id;

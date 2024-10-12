@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MilestoneLogistics.web.Data;
 using MilestoneLogistics.web.Models.Domain;
@@ -8,6 +9,7 @@ using System.ComponentModel;
 
 namespace MilestoneLogistics.web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminTagsController : Controller
     {
         private readonly ITagRepository tagRepository;

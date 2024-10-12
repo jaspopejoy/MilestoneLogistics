@@ -1,0 +1,75 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+@inject UserManager<IdentityUser> userManager
+
+@model MilestoneLogistics.web.Models.ViewModels.BlogDetailsViewModel
+
+@{
+    ViewData["Title"] = Model.PageTitle;
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6">
+            @if (Model != null)
+            {
+                <h1 class="mb-3">@Model.Heading</h1>
+                <div class="d-flex justify-content-between mb-3">
+                    <span class="text-secondary">@Model.Author</span>
+                    <span class="text-secondary">@Model.PublishedDate.ToShortDateString()</span>
+                </div>
+
+
+                <div class="mb-3">
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        <a id="btnLike" style="cursor: pointer;">
+                            <i class="bg-info bi-hand-thumbs-up"></i>
+                        </a>
+                    }
+                    <span>@Model.TotalLikes</span> likes
+                </div>
+
+                <div class="d-flex mb-3">
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <span class="badge bg-secondary me-2">@tag.Name</span>
+                    }
+                </div>
+
+                <img src="@Model.FeaturedImageUrl" class="d-block img-fluid mb-3" />
+
+                <div class="mb-3 blog-details-content">
+                    @Html.Raw(Model.Content)
+                </div>
+            }
+            else
+            {
+                <p>Blog Post Not Found!!</p>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const btnlikeElement = document.getElementById('btnLike');
+
+        async function addLikeForBlog() {
+            fetch('/api/BlogPostLike/Add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': '*/*'
+                },
+                body: JSON.stringify({ blogPostId: '@Model.Id', userId: '@userManager.GetUserId(User)'
+                })
+            })
+                .then(console.log('Request finished'));
+        }
+
+        btnlikeElement.addEventListener('click', addLikeForBlog);
+
+
+    </script>
+}

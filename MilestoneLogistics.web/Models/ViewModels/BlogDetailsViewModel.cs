@@ -1,6 +1,8 @@
-﻿namespace MilestoneLogistics.web.Models.Domain
+﻿using MilestoneLogistics.web.Models.Domain;
+
+namespace MilestoneLogistics.web.Models.ViewModels
 {
-    public class BlogPost
+    public class BlogDetailsViewModel
     {
         public Guid Id { get; set; }
 
@@ -22,9 +24,8 @@
 
         public bool Visible { get; set; }
 
-        //Navigation Property
         public ICollection<Tag> Tags { get; set; }
 
-        public ICollection<BlogPostLike> Likes { get; set; }
+        public int TotalLikes { get; set; }
     }
 }

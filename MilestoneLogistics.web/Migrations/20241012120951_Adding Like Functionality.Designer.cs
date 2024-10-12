@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MilestoneLogistics.web.Data;
 
@@ -11,9 +12,11 @@ using MilestoneLogistics.web.Data;
 namespace MilestoneLogistics.web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241012120951_Adding Like Functionality")]
+    partial class AddingLikeFunctionality
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,7 +94,7 @@ namespace MilestoneLogistics.web.Migrations
 
                     b.HasIndex("BlogPostId");
 
-                    b.ToTable("BlogPostLike");
+                    b.ToTable("BlogPostsLike");
                 });
 
             modelBuilder.Entity("MilestoneLogistics.web.Models.Domain.Tag", b =>
