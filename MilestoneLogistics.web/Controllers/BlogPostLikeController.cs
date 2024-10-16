@@ -12,10 +12,11 @@ namespace MilestoneLogistics.web.Controllers
     {
         private readonly IBlogPostLikeRepository blogPostLikeRepository;
 
-        public BlogPostLikeController(IBlogPostLikeRepository blogPostLikeRepository)
+        public BlogPostLikeController (IBlogPostLikeRepository blogPostLikeRepository)
         {
             this.blogPostLikeRepository = blogPostLikeRepository;
         }
+
         [HttpPost]
         [Route("Add")]
         public async Task<IActionResult> AddLike([FromBody] AddLikeRequest addLikeRequest)
@@ -27,6 +28,15 @@ namespace MilestoneLogistics.web.Controllers
             };
             await blogPostLikeRepository.AddLikeForBlog(model);
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("{blogPostId:Guid}/totalLikes")]
+        public async Task<IActionResult> GetTotalLikesForBlog([FromRoute] Guid blogPostId)
+        {
+            var totalLikes = await blogPostLikeRepository.GetTotalLikes(blogPostId);
+
+            return Ok(totalLikes);
         }
     }
 }

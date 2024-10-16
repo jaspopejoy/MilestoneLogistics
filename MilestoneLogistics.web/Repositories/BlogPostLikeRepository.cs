@@ -21,6 +21,11 @@ namespace MilestoneLogistics.web.Repositories
             return blogPostLike;
         }
 
+        public async Task<IEnumerable<BlogPostLike>> GetLikesForBlog(Guid blogPostId)
+        {
+            return await _context.BlogPostLike.Where(x => x.BlogPostId == blogPostId).ToListAsync();
+        }
+
         public async Task<int> GetTotalLikes(Guid blogPostId)
         {
             return await _context.BlogPostLike.CountAsync(x => x.BlogPostId == blogPostId);

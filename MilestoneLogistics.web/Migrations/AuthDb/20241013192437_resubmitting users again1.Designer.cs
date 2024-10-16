@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MilestoneLogistics.web.Data;
 
@@ -11,9 +12,11 @@ using MilestoneLogistics.web.Data;
 namespace MilestoneLogistics.web.Migrations.AuthDb
 {
     [DbContext(typeof(AuthDbContext))]
-    partial class AuthDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241013192437_resubmitting users again1")]
+    partial class resubmittingusersagain1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,22 +54,22 @@ namespace MilestoneLogistics.web.Migrations.AuthDb
                     b.HasData(
                         new
                         {
-                            Id = "b0414d8e-9cc3-4d37-8fab-d190009cc397",
-                            ConcurrencyStamp = "b0414d8e-9cc3-4d37-8fab-d190009cc397",
+                            Id = "2de4df79-52bf-40d3-9024-3a3fa9a9466e",
+                            ConcurrencyStamp = "2de4df79-52bf-40d3-9024-3a3fa9a9466e",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "15ccac94-b243-4dd4-a5c8-f6499a0602b8",
-                            ConcurrencyStamp = "15ccac94-b243-4dd4-a5c8-f6499a0602b8",
+                            Id = "79fdfeef-908c-44f0-a949-c11bd6c07891",
+                            ConcurrencyStamp = "79fdfeef-908c-44f0-a949-c11bd6c07891",
                             Name = "SuperAdmin",
                             NormalizedName = "SuperAdmin"
                         },
                         new
                         {
-                            Id = "63550081-9b55-44bf-a13b-29cfc1c060eb",
-                            ConcurrencyStamp = "63550081-9b55-44bf-a13b-29cfc1c060eb",
+                            Id = "b67ed221-127e-4f1b-a013-74600d4aa65b",
+                            ConcurrencyStamp = "b67ed221-127e-4f1b-a013-74600d4aa65b",
                             Name = "user",
                             NormalizedName = "user"
                         });
@@ -164,18 +167,18 @@ namespace MilestoneLogistics.web.Migrations.AuthDb
                     b.HasData(
                         new
                         {
-                            Id = "ce5332e7-6d2e-47d2-95c2-6a2254b76955",
+                            Id = "0b5e4fcc-b26c-4d92-a041-d6757ee3e719",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3898c746-d918-467e-bbf6-37b59702915f",
+                            ConcurrencyStamp = "43bde9ff-3ab3-4673-bae7-5ac6e4006ff7",
                             Email = "cyphre187@yahoo.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "CYPHRE187@YAHOO.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAELhCWQQuk2ym4JhUDs/V37XqLca0cef1g29SVUHKasBiEkFquaOSy2Yux0KFAuetiA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEElq8IqbB5NlXVVtEZoYkgkuxOfIdslr0G5ZFxIBYQHs/v147VIn2v/ktcphyO/k7A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "39141b1e-01e6-4030-ab7f-807fd11d0aa9",
+                            SecurityStamp = "03198f57-ff39-4853-8953-feaca34e111b",
                             TwoFactorEnabled = false,
-                            UserName = "cyphre187@yahoo.com"
+                            UserName = "cyphre187"
                         });
                 });
 
@@ -243,18 +246,18 @@ namespace MilestoneLogistics.web.Migrations.AuthDb
                     b.HasData(
                         new
                         {
-                            UserId = "ce5332e7-6d2e-47d2-95c2-6a2254b76955",
-                            RoleId = "b0414d8e-9cc3-4d37-8fab-d190009cc397"
+                            UserId = "0b5e4fcc-b26c-4d92-a041-d6757ee3e719",
+                            RoleId = "2de4df79-52bf-40d3-9024-3a3fa9a9466e"
                         },
                         new
                         {
-                            UserId = "ce5332e7-6d2e-47d2-95c2-6a2254b76955",
-                            RoleId = "15ccac94-b243-4dd4-a5c8-f6499a0602b8"
+                            UserId = "0b5e4fcc-b26c-4d92-a041-d6757ee3e719",
+                            RoleId = "79fdfeef-908c-44f0-a949-c11bd6c07891"
                         },
                         new
                         {
-                            UserId = "ce5332e7-6d2e-47d2-95c2-6a2254b76955",
-                            RoleId = "63550081-9b55-44bf-a13b-29cfc1c060eb"
+                            UserId = "0b5e4fcc-b26c-4d92-a041-d6757ee3e719",
+                            RoleId = "b67ed221-127e-4f1b-a013-74600d4aa65b"
                         });
                 });
 

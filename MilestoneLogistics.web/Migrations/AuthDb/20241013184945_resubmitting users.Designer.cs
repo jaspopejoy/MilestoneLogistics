@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MilestoneLogistics.web.Data;
 
@@ -11,9 +12,11 @@ using MilestoneLogistics.web.Data;
 namespace MilestoneLogistics.web.Migrations.AuthDb
 {
     [DbContext(typeof(AuthDbContext))]
-    partial class AuthDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241013184945_resubmitting users")]
+    partial class resubmittingusers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,22 +54,22 @@ namespace MilestoneLogistics.web.Migrations.AuthDb
                     b.HasData(
                         new
                         {
-                            Id = "b0414d8e-9cc3-4d37-8fab-d190009cc397",
-                            ConcurrencyStamp = "b0414d8e-9cc3-4d37-8fab-d190009cc397",
+                            Id = "2de4df79-52bf-40d3-9024-3a3fa9a9466e",
+                            ConcurrencyStamp = "2de4df79-52bf-40d3-9024-3a3fa9a9466e",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "15ccac94-b243-4dd4-a5c8-f6499a0602b8",
-                            ConcurrencyStamp = "15ccac94-b243-4dd4-a5c8-f6499a0602b8",
+                            Id = "79fdfeef-908c-44f0-a949-c11bd6c07891",
+                            ConcurrencyStamp = "79fdfeef-908c-44f0-a949-c11bd6c07891",
                             Name = "SuperAdmin",
                             NormalizedName = "SuperAdmin"
                         },
                         new
                         {
-                            Id = "63550081-9b55-44bf-a13b-29cfc1c060eb",
-                            ConcurrencyStamp = "63550081-9b55-44bf-a13b-29cfc1c060eb",
+                            Id = "b67ed221-127e-4f1b-a013-74600d4aa65b",
+                            ConcurrencyStamp = "b67ed221-127e-4f1b-a013-74600d4aa65b",
                             Name = "user",
                             NormalizedName = "user"
                         });
@@ -164,18 +167,18 @@ namespace MilestoneLogistics.web.Migrations.AuthDb
                     b.HasData(
                         new
                         {
-                            Id = "ce5332e7-6d2e-47d2-95c2-6a2254b76955",
+                            Id = "3459d879-9213-40e7-82e4-40e788361038",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3898c746-d918-467e-bbf6-37b59702915f",
-                            Email = "cyphre187@yahoo.com",
+                            ConcurrencyStamp = "0790a1d5-afa0-47c1-a4ab-13f13b98d528",
+                            Email = "superadmin@bloggy.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "CYPHRE187@YAHOO.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAELhCWQQuk2ym4JhUDs/V37XqLca0cef1g29SVUHKasBiEkFquaOSy2Yux0KFAuetiA==",
+                            NormalizedEmail = "SUPERADMIN@BLOGGY.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAENJSqNtKfOGmRqtPR0HuxQ5QvtS4nN2VUPSKqcWz/eLh1hJL7j+VxQdC0R37enurBg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "39141b1e-01e6-4030-ab7f-807fd11d0aa9",
+                            SecurityStamp = "a117ad13-2f7d-4296-ba34-66179a22192d",
                             TwoFactorEnabled = false,
-                            UserName = "cyphre187@yahoo.com"
+                            UserName = "superadmin@bloggy.com"
                         });
                 });
 
@@ -243,18 +246,18 @@ namespace MilestoneLogistics.web.Migrations.AuthDb
                     b.HasData(
                         new
                         {
-                            UserId = "ce5332e7-6d2e-47d2-95c2-6a2254b76955",
-                            RoleId = "b0414d8e-9cc3-4d37-8fab-d190009cc397"
+                            UserId = "3459d879-9213-40e7-82e4-40e788361038",
+                            RoleId = "2de4df79-52bf-40d3-9024-3a3fa9a9466e"
                         },
                         new
                         {
-                            UserId = "ce5332e7-6d2e-47d2-95c2-6a2254b76955",
-                            RoleId = "15ccac94-b243-4dd4-a5c8-f6499a0602b8"
+                            UserId = "3459d879-9213-40e7-82e4-40e788361038",
+                            RoleId = "79fdfeef-908c-44f0-a949-c11bd6c07891"
                         },
                         new
                         {
-                            UserId = "ce5332e7-6d2e-47d2-95c2-6a2254b76955",
-                            RoleId = "63550081-9b55-44bf-a13b-29cfc1c060eb"
+                            UserId = "3459d879-9213-40e7-82e4-40e788361038",
+                            RoleId = "b67ed221-127e-4f1b-a013-74600d4aa65b"
                         });
                 });
 

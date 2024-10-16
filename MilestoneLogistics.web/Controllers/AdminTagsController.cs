@@ -29,6 +29,13 @@ namespace MilestoneLogistics.web.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(AddTagRequest addTagRequest)
         {
+            ValidateAddTagRequest(addTagRequest);
+
+            if(ModelState.IsValid == false)
+            {
+                return View();
+            }
+
             //Mapping AddTagRequest to tag domain model
             var tag = new Tag
             {
@@ -42,10 +49,34 @@ namespace MilestoneLogistics.web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> List()
+        public async Task<IActionResult> List(string? searchQurey, 
+                                              string? sortBy, 
+                                              string? sortDirection,
+                                              int pageSize = 3,
+                                              int pageNumber = 1)
         {
+            var totalRecords = await tagRepository.CountAsync();
+            var totalPages = Math.Ceiling((decimal)totalRecords / pageSize);
+
+            if (pageNumber > totalPages)
+            {
+                pageNumber--;
+            }
+
+            if (pageNumber < totalPages)
+            {
+                pageNumber++;
+            }
+
+            ViewBag.TotalPages = totalPages;
+            ViewBag.SearchQuery = searchQurey;
+            ViewBag.SortBy = sortBy;
+            ViewBag.SortDirection = sortDirection;
+            ViewBag.PageSize = pageSize;
+            ViewBag.PageNumber = pageNumber;
+
             //use DbContext to read the tags
-            var tags = await tagRepository.GetAllAsync();
+            var tags = await tagRepository.GetAllAsync(searchQurey, sortBy, sortDirection, pageNumber, pageSize);
 
             return View(tags);
         }
@@ -107,6 +138,17 @@ namespace MilestoneLogistics.web.Controllers
 
             //show error notification
             return RedirectToAction("Edit", new { id = editTagRequest.Id});
+        }
+
+        private void ValidateAddTagRequest(AddTagRequest request)
+        {
+            if (request.Name is not null && request.DisplayName is not null)
+            {
+                if (request.Name == request.DisplayName)
+                {
+                    ModelState.AddModelError("DisplayName", "Name cannot be the same as DisplayName");
+                }
+            }
         }
     }
 }

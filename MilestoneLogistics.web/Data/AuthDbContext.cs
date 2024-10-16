@@ -16,9 +16,9 @@ namespace MilestoneLogistics.web.Data
 
             //Seed Roles (User, Admin, and Super Admin)
 
-            var adminRoleId = "2de4df79-52bf-40d3-9024-3a3fa9a9466e";
-            var superAdminRoleId = "79fdfeef-908c-44f0-a949-c11bd6c07891";
-            var userRoleId = "b67ed221-127e-4f1b-a013-74600d4aa65b";
+            var adminRoleId = "b0414d8e-9cc3-4d37-8fab-d190009cc397";
+            var superAdminRoleId = "15ccac94-b243-4dd4-a5c8-f6499a0602b8";
+            var userRoleId = "63550081-9b55-44bf-a13b-29cfc1c060eb";
 
             var roles = new List<IdentityRole>
             {
@@ -51,18 +51,18 @@ namespace MilestoneLogistics.web.Data
 
 
             // Seed SuperAdminUser
-            var superAdminId = "3459d879-9213-40e7-82e4-40e788361038";
+            var superAdminId = "ce5332e7-6d2e-47d2-95c2-6a2254b76955";
 
 
             var superAdminUser = new IdentityUser
             {
-                UserName = "superadmin@bloggy.com",
-                Email = "superadmin@bloggy.com",
-                NormalizedEmail = "superadmin@bloggy.com".ToUpper(),
+                UserName = "cyphre187@yahoo.com",
+                Email = "cyphre187@yahoo.com",
+                NormalizedEmail = "cyphre187@yahoo.com".ToUpper(),
                 Id = superAdminId
             };
 
-            superAdminUser.PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(superAdminUser, "Superadmin@123");
+            superAdminUser.PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(superAdminUser, "Abc123!");
 
             builder.Entity<IdentityUser>().HasData(superAdminUser);
 
